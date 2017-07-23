@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
 # twilio gem for sending text messages
 gem 'twilio-ruby', '~> 3.12'
 #delayed job gem to delay when method runs
