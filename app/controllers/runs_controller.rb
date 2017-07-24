@@ -8,6 +8,7 @@ class RunsController < ApplicationController
     if @runs.empty?
       render json: { error: "No runs found" }, status: :not_found
     else
+      Rails.logger.debug("I printed something to the console")
       render json: @runs.as_json(only: [:id, :location, :status, :user_id, :contact_id]), status: :ok
     end
   end
