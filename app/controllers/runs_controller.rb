@@ -39,7 +39,6 @@ class RunsController < ApplicationController
       puts "I made it past notifier.delay"
 
     end
-
   end
 
   def notify
