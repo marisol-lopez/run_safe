@@ -2,6 +2,14 @@ class RunsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
+  def index
+    @runs = Run.all
+    if @runs.empty?
+      render json: { error: "No runs found" }, status: :not_found
+    else
+      render json: @runs.as_json(only: [:id, :location, :status, :user_id, :contact_id]), status: :ok
+    end
+  end
 
   def create
     if User.exists?(username: data_params[:username])
@@ -68,20 +76,20 @@ class RunsController < ApplicationController
   # end
 
 
-      # set timer with the end_time as seconds and then run this method at this time
-      # need to account for timezone
-      # time_now = Time.now
-      # end_time = Time.parse(@run.end_time)
-      # delayed_time = (((end_time - time_now)/60) + 1).ceil
-      # .delay(run_at: delayed_time.minutes.from_now)
+  # set timer with the end_time as seconds and then run this method at this time
+  # need to account for timezone
+  # time_now = Time.now
+  # end_time = Time.parse(@run.end_time)
+  # delayed_time = (((end_time - time_now)/60) + 1).ceil
+  # .delay(run_at: delayed_time.minutes.from_now)
 
-      # HELP will need to figure out how to access the current user / run???
-      # will have something to do with a timer that will compare Time.now(current time) with the end_time associated with the run
-      # then I will say something like
-        # if run.end_time > Time.now && run.status = "pending"
-        # self.notify_late_text #which will send the textmessage
+  # HELP will need to figure out how to access the current user / run???
+  # will have something to do with a timer that will compare Time.now(current time) with the end_time associated with the run
+  # then I will say something like
+  # if run.end_time > Time.now && run.status = "pending"
+  # self.notify_late_text #which will send the textmessage
 
-# this will be used for when I get the timer thing to work for sending the second text message
+  # this will be used for when I get the timer thing to work for sending the second text message
   # def notify_late_text
   #   time_now3 = Time.now
   #   puts "the time i made it into notify_late_text: #{time_now3}"
