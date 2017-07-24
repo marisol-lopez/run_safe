@@ -4,7 +4,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-# gem 'listen', '~> 3.0.5'
+gem 'listen', '~> 3.0.5'
 
 
 # twilio gem for sending text messages
@@ -37,7 +37,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen'
+  # gem 'listen'
   # gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
