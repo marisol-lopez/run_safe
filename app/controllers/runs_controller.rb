@@ -22,6 +22,7 @@ class RunsController < ApplicationController
     if Contact.exists?(contact_name: data_params[:contact_name])
       @contact = Contact.find_by(contact_name: data_params[:contact_name])
     else
+
       @contact = Contact.create(contact_name: data_params[:contact_name], contact_phone_number: data_params[:contact_phone_number])
     end
     if Run.exists?(user_id: @user.id, status:"pending")
