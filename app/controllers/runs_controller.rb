@@ -34,7 +34,6 @@ class RunsController < ApplicationController
       # time_now = Time.now#.getgm
       end_time = Time.parse(@run.end_time)
       # trying to get aws rails to read time in utc for delayed_job run_at
-      end_time += 7 * 60 * 60
       puts "time the run was created: #{Time.now}"
       puts "end time: #{end_time}"
       # @delayed_time = (((end_time - time_now)/60) + 1).ceil
