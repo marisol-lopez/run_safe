@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 gem 'listen', '~> 3.0.5'
 
+gem 'daemons'
+
 
 # twilio gem for sending text messages
 gem 'twilio-ruby', '~> 3.12'
