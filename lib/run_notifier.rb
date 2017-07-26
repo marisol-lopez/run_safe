@@ -1,13 +1,12 @@
 class RunNotifier
   def initialize(run_id)
+    puts "*****I made it inside of the RunNotifier method*****"
     @run_id = run_id
   end
 
-  def self.run_not_ended
+  def run_not_ended
     puts ">>> In run_not_ended, time is #{Time.now}"
     run = Run.find(@run_id)
-
-    # sleep(@delayed_time.minutes)
     run_end_time = Time.parse(run.end_time)
     time_now = Time.now
     puts "My run status is #{run.status}"
