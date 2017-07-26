@@ -32,7 +32,7 @@ class RunsController < ApplicationController
       @run = Run.create(location: data_params[:location], end_time: data_params[:end_time], status: "pending", user_id: @user.id, contact_id: @contact.id )
       self.notify
       # time_now = Time.now
-      end_time = Time.parse(@run.end_time)
+      end_time = Time.parse(@run.end_time).getgm
       puts "time the run was created: #{Time.now}"
       puts "end time: #{end_time}"
       # @delayed_time = (((end_time - time_now)/60) + 1).ceil
