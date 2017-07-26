@@ -3,7 +3,7 @@ class RunNotifier
     @run_id = run_id
   end
 
-  def run_not_ended
+  def self.run_not_ended
     puts ">>> In run_not_ended, time is #{Time.now}"
     run = Run.find(@run_id)
 
